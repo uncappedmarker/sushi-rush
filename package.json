@@ -1,0 +1,48 @@
+{
+  "name": "sushi-rush",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uncappedmarker/sushi-rush.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uncappedmarker/sushi-rush/issues"
+  },
+  "homepage": "https://github.com/uncappedmarker/sushi-rush#readme",
+  "dependencies": {
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.3",
+    "babel-loader": "8.0.4",
+    "babel-preset-env": "1.7.0",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-1": "6.24.1",
+    "babel-runtime": "6.26.0",
+    "browser-bunyan": "1.5.0",
+    "browserify": "16.2.3",
+    "classnames": "2.2.6",
+    "clone": "2.1.2",
+    "config": "2.0.1",
+    "cross-env": "5.2.0",
+    "deep-equal": "1.0.1",
+    "electron": "3.0.6",
+    "electron-react-devtools": "0.5.3",
+    "fs": "0.0.1-security",
+    "moment": "2.22.2",
+    "path": "0.12.7",
+    "react": "16.6.0",
+    "react-dom": "16.6.0",
+    "webpack": "4.23.1",
+    "webpack-notifier": "1.7.0",
+    "yargs": "12.0.2"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.2"
+  }
+}

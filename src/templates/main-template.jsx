@@ -1,5 +1,14 @@
 import React, {Component} from "react"
 
+import {isFunction} from "object-utils"
+
+// Main views
+import MainMenu from "main-menu"
+
+// Redux
+import KeyboardStore from "keyboard-store"
+import {onKeyPress} from "keyboard-actions"
+
 export default class Wrapper extends React.Component {
 	
 	constructor(props) {
@@ -10,12 +19,23 @@ export default class Wrapper extends React.Component {
 		return {
 			controllerConnected: false,
 			controllerIndex: 0,
-			showControllerEvents: true
+			showControllerEvents: true,
+			listenToKeyPress: true,
+			view: "mainMenu"
 		}
 	}
 
 	state = this.getDefaultState();
 
+	/**
+	 * @method controllerDidSomething
+	 *
+	 * When `this.state.showControllerEvents`
+	 * is active, show the controller outputs
+	 * in a div
+	 *
+	 *
+	 */
 	controllerDidSomething = () => {
 		
 		var haveEvents = 'ongamepadconnected' in window;
@@ -71,13 +91,43 @@ export default class Wrapper extends React.Component {
 	componentDidMount() {
 		window.addEventListener("gamepadconnected", this.onControllerConnected)
 		window.addEventListener("gamepaddisconnected", this.onControllerDisconnected)
+		window.addEventListener("keyup", this.keyPressed)
 	}
 
+	keyPressed = (event, handler = (() => {})) => {
 
+		const keyPressed = event.which || event.key;
+
+		if (!this.state.listenToKeyPress) return;
+
+		if (isFunction(handler)) {
+			handler(keyPressed)
+		}
+
+		KeyboardStore.dispatch( onKeyPress(keyPressed) )
+
+	}
+
+	changeView = (newView = "mainMenu") => {
+		this.setState({
+			view: newView
+		})
+	}
+
+	makeView = () => {
+		switch(this.state.view) {
+			case "mainMenu":
+				return <MainMenu changeView={this.changeView} keyPressed={this.keyPressed} />
+				break;
+			default:
+				return null;
+				break;
+		}
+	}
 
 	render() {
 			return (
-				<div>
+				<div id="viewport">
 					{
 						(this.state.showControllerEvents) ?
 						<div id="controllerEvents">
@@ -88,6 +138,7 @@ export default class Wrapper extends React.Component {
 						</div>
 						: null
 					}
+					{this.makeView()}
 				</div>
 			)
 	}

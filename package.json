@@ -29,6 +29,7 @@
     "babel-preset-stage-1": "6.24.1",
     "path": "0.12.7",
     "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "redux": "4.0.1"
   }
 }

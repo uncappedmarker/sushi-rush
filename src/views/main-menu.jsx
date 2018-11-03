@@ -1,8 +1,14 @@
 import React, {Component} from "react"
 
+import {KEY_ARROW_UP, KEY_ARROW_DOWN, KEY_ENTER} from "constants-keyboard"
+
 import KeyboardStore from "keyboard-store"
 
 import {isFunction} from "object-utils"
+
+const MENU_OPTIONS = [
+	{label: "New Game"}
+]
 
 export default class MainMenu extends React.Component {
 	constructor(props) {
@@ -12,6 +18,7 @@ export default class MainMenu extends React.Component {
 	static defaultProps = {
 		changeView: (() => {}),
 		keyPressed: (() => {}),
+		selected: 0,
 	}
 
 	componentDidMount() {
@@ -20,8 +27,13 @@ export default class MainMenu extends React.Component {
 	}
 
 	onKeyPressed = () => {
-		const state = KeyboardStore.getState();
-		console.log(state)
+		const key = KeyboardStore.getState();
+
+		if (key === KEY_ARROW_UP) {
+
+		} else if (key === KEY_ARROW_DOWN) {
+
+		}
 	}
 
 	// handleKeyPress()
@@ -35,6 +47,7 @@ export default class MainMenu extends React.Component {
 	render() {
 		return (
 			<div id="main-menu" className="p-1">
+				<p><a onClick={this.changeView.bind(this, "gameBoard")}>New Game</a></p>
 				<p><a onClick={this.changeView.bind(this, "gameBoard")}>New Game</a></p>
 			</div>
 		)

@@ -24,8 +24,6 @@ class Viewport extends React.Component {
 
 	componentDidMount = () => {
 
-		console.clear()
-
 		window.addEventListener("gamepadconnected", connectGamepad.bind(this, this.props.dispatch.bind(this)))
 		window.addEventListener("gamepaddisconnected", () => this.props.dispatch(setGamepadDisconnected()))
 		// window.addEventListener("keyup", this.keyPressed)
@@ -35,7 +33,7 @@ class Viewport extends React.Component {
 		return (
 			<div>
 
-				<div>
+				<div id="debug" className="box">
 					<GamepadIO />
 				</div>
 				

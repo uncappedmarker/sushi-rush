@@ -18,7 +18,7 @@ class GamepadIO extends React.Component {
 	render() {
 		return (
 			<div id="gamepad-io">
-				<p><strong>Gamepad Debug</strong></p>
+				<h1>Gamepad Debug</h1>
 				<p>Gamepad connected: {String(this.props.gamepadConnected)} ({this.props.gamepadIndex})</p>
 				<p>Left Stick: {this.props.gamepad.leftStick[0]}, {this.props.gamepad.leftStick[1]}</p>
 			</div>

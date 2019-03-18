@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Acme|Barlow');
+
+@import "theme/theme";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	min-height: 100%;
+}
+
+@import "specifics/typeography";
+@import "specifics/box";
+
+@import "specifics/debug";
+
+body {
+	background-color: rgba($black, 0.8);
+	color: #fff;
+	font-family: $font-detail;
+}

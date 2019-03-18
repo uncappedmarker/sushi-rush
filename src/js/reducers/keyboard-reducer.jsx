@@ -1,28 +1,35 @@
 import CONSTANTS_KEYBOARD from "constants-keyboard"
 
-const initialState = {
-  articles: []
-};
+/**
+ * A list of the last 10 *VALID* keyboard IO
+ *
+ * action: {type: {int}, key: {int}}
+ *
+ */
+const keyboardIO = (state = [], action) => {
 
-const rootReducer = (state = initialState, action) => {
+	// Limit to last 10 items, then put the last action at the beginning
+	let newState = [...state].slice(0, 9);
+		newState.unshift(action.key);
+
 	switch (action.type) {
 		case CONSTANTS_KEYBOARD.KEY_ENTER:
-			return action.payload;
+			return newState;
 		case CONSTANTS_KEYBOARD.KEY_ARROW_UP:
-			return action.payload;
+			return newState;
 		case CONSTANTS_KEYBOARD.KEY_ARROW_LEFT:
-			return action.payload;
+			return newState;
 		case CONSTANTS_KEYBOARD.KEY_ARROW_RIGHT:
-			return action.payload;
+			return newState;
 		case CONSTANTS_KEYBOARD.KEY_ARROW_DOWN:
-			return action.payload;
+			return newState;
 		case CONSTANTS_KEYBOARD.KEY_ESC:
-			return action.payload;
+			return newState;
 		case CONSTANTS_KEYBOARD.KEY_SHIFT:
-			return action.payload;
+			return newState;
 		default:
-			return undefined;
+			return state;
 	};
 };
 
-export default rootReducer;
+export { keyboardIO };

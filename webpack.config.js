@@ -40,10 +40,11 @@ module.exports = {
 			path.resolve(PATH_JS_SRC, "actions"),
 			path.resolve(PATH_JS_SRC, "constants"),
 			path.resolve(PATH_JS_SRC, "reducers"),
-			path.resolve(PATH_JS_SRC, "stores"),
-			path.resolve(PATH_JS_SRC, "templates"),
+			path.resolve(PATH_JS_SRC, "store"),
 			path.resolve(PATH_JS_SRC, "utils"),
-			path.resolve(PATH_JS_SRC, "views")
+			path.resolve(PATH_JS_SRC, "components"),
+			path.resolve(PATH_JS_SRC, "components", "pages"),
+			path.resolve(PATH_JS_SRC, "components", "debug"),
 		],
 		symlinks: false
 	},

@@ -1,6 +1,5 @@
-const onKeyPress = (key_id = 0) => {
-	const args = { type: key_id, payload: key_id };
-	return args;
-};
+import {GOT_KEYPRESS} from "constants-keyboard"
 
-export { onKeyPress };
+const gotKeyPress = (key_id) => ({ type: GOT_KEYPRESS, key: key_id });
+
+export { gotKeyPress };

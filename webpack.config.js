@@ -24,6 +24,7 @@ fs.copyFileSync(
 );
 
 module.exports = {
+	devtool: "source-map",
 	entry: path.resolve(PATH_JS_SRC, "index.jsx"),
 	module: {
 		rules: [{

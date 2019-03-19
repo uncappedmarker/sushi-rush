@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run webpack -- --watch",
+    "start": "webpack --config ./webpack.config.js --watch",
     "webpack": "webpack --config ./webpack.config.js",
     "start:build": "npm run webpack -- -p",
     "start:server": "webpack-dev-server --config ./webpack.config.js --mode development",
     "css": "node-sass src/scss/src/main.scss dist/styles.css -r src/scss/src",
     "css:watch": "npm run css -- --w src/scss/src",
-    "test": "jest --config jest.config.js"
+    "test": "jest --config jest.config.js --verbose"
   },
   "keywords": [],
   "author": "",

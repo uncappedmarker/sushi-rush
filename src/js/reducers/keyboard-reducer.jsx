@@ -1,32 +1,14 @@
-import CONSTANTS_KEYBOARD from "constants-keyboard"
+import {GOT_KEYPRESS} from "constants-keyboard"
 
 /**
- * A list of the last 10 *VALID* keyboard IO
- *
- * action: {type: {int}, key: {int}}
+ * The last key id pressed
  *
  */
-const keyboardIO = (state = [], action) => {
-
-	// Limit to last 10 items, then put the last action at the beginning
-	let newState = [...state].slice(0, 9);
-		newState.unshift(action.key);
+const keyboardIO = (state = -1, action) => {
 
 	switch (action.type) {
-		case CONSTANTS_KEYBOARD.KEY_ENTER:
-			return newState;
-		case CONSTANTS_KEYBOARD.KEY_ARROW_UP:
-			return newState;
-		case CONSTANTS_KEYBOARD.KEY_ARROW_LEFT:
-			return newState;
-		case CONSTANTS_KEYBOARD.KEY_ARROW_RIGHT:
-			return newState;
-		case CONSTANTS_KEYBOARD.KEY_ARROW_DOWN:
-			return newState;
-		case CONSTANTS_KEYBOARD.KEY_ESC:
-			return newState;
-		case CONSTANTS_KEYBOARD.KEY_SHIFT:
-			return newState;
+		case GOT_KEYPRESS:
+			return action.key;
 		default:
 			return state;
 	};

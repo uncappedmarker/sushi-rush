@@ -1,4 +1,5 @@
 module.exports = {
+	GOT_KEYPRESS: "A key was pressed",
 	KEY_ENTER: 13,
 	KEY_ARROW_UP: 38,
 	KEY_ARROW_LEFT: 37,

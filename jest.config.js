@@ -61,17 +61,18 @@ module.exports = {
   // globals: {},
 
   // An array of directory names to be searched recursively up from the requiring module's location
-  //  moduleDirectories: [
-  //   "<rootDir>/src/js",
-  //   "<rootDir>/src/js/actions",
-  //   "<rootDir>/src/js/components",
-  //   "<rootDir>/src/js/components/debug",
-  //   "<rootDir>/src/js/components/pages",
-  //   "<rootDir>/src/js/constants",
-  //   "<rootDir>/src/js/reducers",
-  //   "<rootDir>/src/js/store",
-  //   "<rootDir>/src/js/utils",
-  // ],
+  moduleDirectories: [
+    "src/js",
+    "src/js/actions",
+    "src/js/components",
+    "src/js/components/debug",
+    "src/js/components/pages",
+    "src/js/constants",
+    "src/js/reducers",
+    "src/js/store",
+    "src/js/utils",
+    "node_modules",
+  ],
 
   // An array of file extensions your modules use
   // moduleFileExtensions: [
@@ -117,11 +118,13 @@ module.exports = {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  // rootDir: null,
+  // rootDir: "src",
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
-  //   "<rootDir>"
+    // "<rootDir>/src",
+    // "<rootDir>/src/js",
+    // "<rootDir>/src/js/utils",
   // ],
 
   // Allows you to use a custom runner instead of Jest's default test runner
@@ -146,10 +149,10 @@ module.exports = {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-  testMatch: [
-    "**/__tests__/**/*.test.[jt]s?(x)",
-    "**/?(*.)+(spec|test).[tj]s?(x)"
-  ],
+  // testMatch: [
+  //   "**/__tests__/**/*.test.[jt]s?(x)",
+  //   "**/?(*.)+(spec|test).[tj]s?(x)"
+  // ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [

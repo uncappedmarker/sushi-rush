@@ -9,4 +9,16 @@ import GAMEPAD_CONSTANTS from "constants-gamepad"
  */
 const leftStickChanged = (x, y) => ({type: GAMEPAD_CONSTANTS.LEFT_STICK_CHANGED, data: [x, y]});
 
-module.exports = { leftStickChanged };
+/**
+ * Set the x and y of the right gamepad stick when connected
+ *
+ * @param {float} x - 1 to -1
+ * @param {float} y - 1 to -1
+ *
+ */
+const rightStickChanged = (x, y) => ({type: GAMEPAD_CONSTANTS.RIGHT_STICK_CHANGED, data: [x, y]});
+
+module.exports = {
+	leftStickChanged,
+	rightStickChanged,
+};

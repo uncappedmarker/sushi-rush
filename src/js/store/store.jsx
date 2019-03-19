@@ -4,20 +4,23 @@ import { createStore, combineReducers } from "redux";
 import { keyboardIO } from "keyboard-reducer";
 
 // Gamepad
-import { leftStick } from "gamepad-reducers";
+import { leftStick, rightStick } from "gamepad-reducers";
 const gamepad = combineReducers({
-	leftStick
+	leftStick,
+	rightStick,
 })
 
 // Game settings
 import { settings } from "settings-reducers"
 
-// const gampadIO = combineReducers()
+// View
+import { view } from "view-reducer"
 
 const store = combineReducers({
 	keyboardIO,
 	gamepad,
-	settings
+	settings,
+	view,
 });
 
 export default createStore(store);

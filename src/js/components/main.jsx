@@ -13,11 +13,9 @@ class Main extends React.Component {
 
 	render() {
 		return (
-			<div id="viewport">
-				<Provider store={Store}>
-					<Viewport />
-				</Provider>
-			</div>
+			<Provider store={Store}>
+				<Viewport />
+			</Provider>
 		)
 	}
 }

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Acme|Barlow');
 
+// Mixins
+@import "mixins";
+
+// Colors and sizes in vars
 @import "theme/theme";
 
 * {
@@ -12,10 +16,17 @@ html, body {
 	min-height: 100%;
 }
 
+// Typeography
 @import "specifics/typeography";
-@import "specifics/box";
 
+// General things
+@import "specifics/box";
+@import "specifics/square";
+
+// Specific containers
 @import "specifics/debug";
+@import "specifics/viewport";
+
 
 body {
 	background-color: rgba($black, 0.8);

@@ -60,5 +60,6 @@ module.exports = {
 	devServer: {
 		contentBase: PATH_OUTPUT_BASE,
 		hot: true
-	}
+	},
+	mode: 'development'
 };

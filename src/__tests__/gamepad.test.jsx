@@ -2,7 +2,7 @@ import GAMEPAD_CONSTANTS from "constants-gamepad"
 import CONSTANTS_SETTINGS from "constants-settings"
 
 import {setGamepadConnected, setGamepadDisconnected} from "settings-actions"
-import {leftStickChanged} from "gamepad-actions"
+import {leftStickChanged, rightStickChanged} from "gamepad-actions"
 import Store from "store"
 
 describe("Connecting and disconnecting the gamepad", () => {
@@ -57,6 +57,27 @@ describe("Setting the left stick data", () => {
 	it("Dispatch left stick stuff to the store, get that data back", () => {
 		Store.dispatch(leftStickChanged(0.002, -0.0001));
 		const state = Store.getState().gamepad.leftStick;
+		expect(state).toEqual([0.002, -0.0001]);
+	});
+
+});
+
+describe("Setting the right stick data", () => {
+	
+	it("Check the action creator", () => {
+		const result = rightStickChanged(1, 0.02);
+		const expected = {type: GAMEPAD_CONSTANTS.RIGHT_STICK_CHANGED, data: [1, 0.02]};
+		expect(result).toEqual(expected);
+	});
+
+	it("Check state before (0,0) right stick position", () => {
+		const state = Store.getState().gamepad.rightStick;
+		expect(state).toEqual([0, 0]);
+	});
+
+	it("Dispatch right stick stuff to the store, get that data back", () => {
+		Store.dispatch(rightStickChanged(0.002, -0.0001));
+		const state = Store.getState().gamepad.rightStick;
 		expect(state).toEqual([0.002, -0.0001]);
 	});
 

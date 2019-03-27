@@ -10,8 +10,16 @@ const isFunction = (test) => {
 	return typeof(test) === "function";
 }
 
+const forEachInObject = (object = {}, func) => {
+	Object.keys(object).forEach((key, index) => {
+		func(object[key], key, index);
+	})
+			
+}
+
 module.exports = {
 	isObject,
 	isFunction,
 	isMap,
+	forEachInObject,
 }

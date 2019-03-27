@@ -1,7 +1,7 @@
 import { SET_VIEW, SET_TABINDEX, SET_TABINDEX_INC, SET_TABINDEX_DEC } from "constants-view"
 
 const initialState = {
-	view: "main",
+	view: "game",
 	tabIndex: 0
 }
 

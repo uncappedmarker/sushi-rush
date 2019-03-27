@@ -2,6 +2,7 @@ import {
 	isFunction,
 	isObject,
 	isMap,
+	forEachInObject,
 } from "object-utils"
 
 describe("Check functions in object-utils", () => {
@@ -34,6 +35,23 @@ describe("Check functions in object-utils", () => {
 		expect(isMap(37)).toEqual(false);
 		expect(isMap()).toEqual(false);
 		expect(isMap("asd")).toEqual(false);
+	});
+
+	it("forEachInObject()", () => {
+
+		const obj = {
+			thing: [1,2,3],
+			another_thing: {what: true},
+		}
+
+		let result = [];
+
+		forEachInObject(obj, (value) => {
+			result.push(value);
+		})
+
+		expect(result).toEqual([[1,2,3], {what: true}]);
+		
 	});
 
 });

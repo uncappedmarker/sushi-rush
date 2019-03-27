@@ -27,6 +27,9 @@ html, body {
 @import "specifics/debug";
 @import "specifics/viewport";
 
+// Pages
+@import "pages/main-menu";
+
 
 body {
 	background-color: rgba($black, 0.8);

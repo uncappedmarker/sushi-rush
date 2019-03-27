@@ -1,5 +1,12 @@
-import {GOT_KEYPRESS} from "constants-keyboard"
+import {
+	KEY_UP,
+	KEY_DOWN,
+} from "constants-keyboard"
 
-const gotKeyPress = (key_id) => ({ type: GOT_KEYPRESS, key: key_id });
+const keyDown = (key_id) => ({ type: KEY_DOWN, keyID: key_id });
+const keyUp = () => ({ type: KEY_UP });
 
-export { gotKeyPress };
+export {
+	keyDown,
+	keyUp,
+};

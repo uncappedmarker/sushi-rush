@@ -1,10 +1,13 @@
 module.exports = {
-	GOT_KEYPRESS: "A key was pressed",
-	KEY_ENTER: 13,
-	KEY_ARROW_UP: 38,
-	KEY_ARROW_LEFT: 37,
-	KEY_ARROW_DOWN: 39,
-	KEY_ARROW_RIGHT: 40,
-	KEY_ESC: 27,
-	KEY_SHIFT: 16,
+	KEY_UP: "A key was released",
+	KEY_DOWN: "A key was pressed",
+	KEYS: {
+		13: "[ENTER] Key",
+		38: "[ARROW UP] Key",
+		37: "[ARROW LEFT] Key",
+		40: "[ARROW DOWN] Key",
+		39: "[ARROW RIGHT] Key",
+		27: "[EST] Key",
+		16: "[SHIFT] Key",
+	}
 }

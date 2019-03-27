@@ -1,4 +1,5 @@
 import { createStore, combineReducers } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 // Keyboard
 import { keyboardIO } from "keyboard-reducer";
@@ -23,4 +24,4 @@ const store = combineReducers({
 	view,
 });
 
-export default createStore(store);
+export default createStore(store, composeWithDevTools());

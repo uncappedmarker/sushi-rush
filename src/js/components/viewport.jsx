@@ -1,11 +1,17 @@
 import React, {Component} from "react"
 
+// Views
 import MainMenu from "main-menu"
+import GameWindow from "game"
+
+// Dbug
 import GamepadIO from "gamepad-io"
+import KeyboardIO from "keyboard-io"
 import DragNDropTest from "drag-n-drop-test"
 
 // Utils
 import {connectGamepad} from "gamepad-utils"
+import {handleKeyDown, handleKeyUp} from "keyboard-utils"
 
 // Actions
 import { setGamepadConnected, setGamepadDisconnected } from "settings-actions"
@@ -26,6 +32,8 @@ class Viewport extends React.Component {
 		switch(this.props.view) {
 			case "main":
 				return <MainMenu />
+			case "game":
+				return <GameWindow />
 			default:
 				return null;
 		}
@@ -33,9 +41,10 @@ class Viewport extends React.Component {
 
 	componentDidMount = () => {
 
-		window.addEventListener("gamepadconnected", connectGamepad.bind(this, this.props.dispatch.bind(this)))
-		window.addEventListener("gamepaddisconnected", () => this.props.dispatch(setGamepadDisconnected()))
-		// window.addEventListener("keyup", this.keyPressed)
+		window.addEventListener("gamepadconnected", connectGamepad.bind(this, this.props.dispatch) );
+		window.addEventListener("gamepaddisconnected", () => this.props.dispatch(setGamepadDisconnected()) );
+		window.addEventListener("keydown", handleKeyDown.bind(this, this.props.dispatch) );
+		window.addEventListener("keyup", handleKeyUp.bind(this, this.props.dispatch) );
 		
 	}
 
@@ -49,7 +58,13 @@ class Viewport extends React.Component {
 
 				<div id="debug" className="box">
 					<div className="section">
+						<p>View: "{this.props.view}"</p>
+					</div>
+					<div className="section">
 						<GamepadIO />
+					</div>
+					<div className="section">
+						<KeyboardIO />
 					</div>
 					<div className="section">
 						<DragNDropTest />
